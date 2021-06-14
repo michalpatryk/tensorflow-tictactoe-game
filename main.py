@@ -8,9 +8,8 @@ if __name__ == '__main__':
     game = Game('o')
     game.new_game()
     print(game.board)
-    print(game.move('topLeft'))
-    print(game.move('topLeft'))
-    game.board = {'topLeft': 'x', 'topCenter': 'x', 'topRight': 'x',
-                  'middleLeft': 'x', 'middleCenter': 'o', 'middleRight': 'o',
-                  'bottomLeft': 'b', 'bottomCenter': 'o', 'bottomRight': 'b'}
+    print(game.move(game.natural_language_to_coordinates('topLeft')))
+    print(game.move(game.natural_language_to_coordinates('topLeft')))
+    game.board = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b']
     game.is_game_over()
+    print(game.natural_language_to_coordinates('topRight'))

@@ -1,20 +1,25 @@
 from . import DataParser
 class Game:
     def __init__(self, current_player='x'):
-        self.board = {'topLeft': 'b', 'topCenter': 'b', 'topRight': 'b',
-                      'middleLeft': 'b', 'middleCenter': 'b', 'middleRight': 'b',
-                      'bottomLeft': 'b', 'bottomCenter': 'b', 'bottomRight': 'b'}
+        self.board = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b']
         self.current_player = current_player
 
     @staticmethod
-    def natural_language_to_coordinates():
-
-        return False
+    def natural_language_to_coordinates(location):
+        return {
+            'topLeft': 0,
+            'topCenter': 1,
+            'topRight': 2,
+            'middleLeft': 3,
+            'middleCenter': 4,
+            'middleRight': 5,
+            'bottomLeft': 6,
+            'bottomCenter': 7,
+            'bottomRight': 8
+        }.get(location, False)
 
     def new_game(self, starting_player='x'):
-        self.board = {'topLeft': 'b', 'topCenter': 'b', 'topRight': 'b',
-                      'middleLeft': 'b', 'middleCenter': 'b', 'middleRight': 'b',
-                      'bottomLeft': 'b', 'bottomCenter': 'b', 'bottomRight': 'b'}
+        self.board = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b']
         self.current_player = starting_player
         print("Starting new game")
 
@@ -39,4 +44,4 @@ class Game:
             return False, "Cant move"
 
     def is_game_over(self):
-        print(DataParser.is_game_end(list(self.board.values())))
+        print(DataParser.is_game_end(self.board))
