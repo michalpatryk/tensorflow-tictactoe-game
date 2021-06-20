@@ -1,4 +1,6 @@
 from . import DataParser
+
+
 class Game:
     def __init__(self, current_player='x'):
         self.board = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b']
