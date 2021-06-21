@@ -1,9 +1,10 @@
 from . import DataParser
 
 
-class Game:
+class TTTGame:
     def __init__(self, current_player='x'):
         self.board = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b']
+        self.board_dimensions = 3
         self.current_player = current_player
 
     @staticmethod
@@ -19,6 +20,7 @@ class Game:
             'bottomCenter': 7,
             'bottomRight': 8
         }.get(location, False)
+
 
     def new_game(self, starting_player='x'):
         self.board = ['b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b']
@@ -47,3 +49,10 @@ class Game:
 
     def is_game_over(self):
         print(DataParser.is_game_end(self.board))
+
+    def get_board_size(self):
+        return self.board_dimensions, self.board_dimensions
+
+    def get_action_size(self):
+        return self.board_dimensions * self.board_dimensions + 1
+

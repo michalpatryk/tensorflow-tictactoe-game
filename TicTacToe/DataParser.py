@@ -15,3 +15,15 @@ def is_game_end(game_state):
         if row[:-1] == game_state:
             return True, row[-1]
     return False
+
+def is_game_win(pieces, color):
+    reader = read_tic_tac_toe_data()
+    flat_transformed_pieces = []
+    for subpieces in pieces:
+        for piece in subpieces:
+            if piece == 0:
+                flat_transformed_pieces.append('b')
+            if piece == 1:
+                flat_transformed_pieces.append('o')
+    #for row in reader:
+        # if row == pieces
